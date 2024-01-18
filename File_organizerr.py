@@ -5,6 +5,7 @@ def arrange_files(main_folder):
     files = os.listdir(main_folder)
     
     moved_files_count = 0
+    file_count={}
     for file in files:
         source_path = os.path.join(main_folder , file)
         if os.path.isfile(source_path):
