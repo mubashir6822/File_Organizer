@@ -9,8 +9,8 @@ def arrange_files(main_folder):
         source_path = os.path.join(main_folder, file)
         if os.path.isfile(source_path):
             ext = file.split('.')[-1]
-        
-            destination_path = os.path.join(main_folder, ext.title())
+
+            destination_path = os.path.join(main_folder, ext.title()) #if any below extention will not match mean it will create one new folder by using 3 letters of extention
             
             if ext in ('txt'):
                 destination_path = os.path.join(main_folder, 'Textfiles')
@@ -21,7 +21,7 @@ def arrange_files(main_folder):
             elif ext in ('doc', 'docx'):
                 destination_path = os.path.join(main_folder, 'Documents')
             elif ext in ('jpg', 'png', 'jpeg', 'gif'):
-                destination_path = os.path.join(main_folder, 'Image')
+                destination_path = os.path.join(main_folder, 'Images')
             
             base, ext = os.path.splitext(file)
             i = 0
