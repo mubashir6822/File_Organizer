@@ -8,7 +8,7 @@ def arrange_files(main_folder):
     for file in files:
         source_path = os.path.join(main_folder , file)
         if os.path.isfile(source_path):
-            ext = file.split('.')[-1]
+            ext= file.split('.')[-1]
 
             destination_path = os.path.join(main_folder , ext.title()) #if any below extention will not match mean it will create one new folder by using 3 letters of extention
             
@@ -17,7 +17,7 @@ def arrange_files(main_folder):
             elif ext in ('mp3','mp4','wav'):
                 destination_path = os.path.join(main_folder,'Music_&_Vedios')
             elif ext in ('pdf'):
-                destination_path = os.path.join(main_folder,'PDFfiles')
+                destination_path= os.path.join(main_folder,'PDFfiles')
             elif ext in ('doc','docx'):
                 destination_path = os.path.join(main_folder,'Documents')
             elif ext in ('jpg','png','jpeg','gif'):
