@@ -24,12 +24,19 @@ def arrange_files(main_folder):
                 destination_path = os.path.join(main_folder ,'Images')
             
             base, ext = os.path.splitext(file)
-            i = 0
-            
-            while os.path.exists(os.path.join(destination_path,f"{base}({i}){ext}")):
+            if base in file_count:
+                i = file_count[base]
+                new_base = f"{base}({i})"
+                file_count[base] += 1
+            else:
+                i = 1
+                new_base = base
+      
+            new_destination_path = os.path.join(destination_path, f"{new_base}{ext}")
+            while os.path.exists(new_destination_path):
+                new_base = f"{base}({i})"
                 i += 1
-            
-            new_destination_path = os.path.join(destination_path, f"{base}({i}){ext}")
+                new_destination_path = os.path.join(destination_path, f"{new_base}{ext}")
 
             if os.path.exists(destination_path):
                 shutil.move(source_path,new_destination_path)
